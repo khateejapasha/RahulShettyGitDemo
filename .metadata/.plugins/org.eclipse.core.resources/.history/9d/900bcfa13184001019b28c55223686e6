@@ -1,0 +1,90 @@
+package Amazon;
+
+import java.awt.print.PageFormat;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Amazonhome {
+//WebDriver driver;
+	@FindBy(xpath = "//*[@class='commonModal__close']")private WebElement Close;
+
+	@FindBy(xpath = "//*[@class='styles__Close-sc-1bytt3z-0 kezeYI']") private WebElement add;
+	@FindBy(id ="fromCity")private WebElement from;
+	@FindBy(xpath = "(//*[contains(text(),'Mumbai')])[2]")private WebElement selectCity;
+	@FindBy(id = "toCity")private WebElement To;
+	@FindBy(xpath ="(//*[@class='searchedResult font14 blackText appendBottom5'])[1]")private WebElement SelcetDesti;
+	@FindBy(xpath = "//*[@class='DayPicker-Day DayPicker-Day--selected']")private WebElement calendar;
+	@FindBy(xpath = "//*[@data-cy='travellerText']")private WebElement Traveller;//passengers
+	@FindBy(xpath = "//*[@data-cy='adults-2']")private WebElement Adults;
+	@FindBy(xpath = "//*[@data-cy='travellerApplyBtn']")private WebElement Apply;
+	@FindBy(xpath ="//*[@class='primaryBtn font24 latoBold widgetSearchBtn ']")private WebElement search;
+	
+	@FindBy(xpath ="//*[contains(text(),'200-OK')]") private WebElement text;
+
+	
+
+	public Amazonhome(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void ClosePopup()//close 1st popup
+	{
+		Close.click();
+	}
+	
+	public void CloseAdd()// close add
+	{
+		add.click();
+	}
+	public void fromCity()//enter from city name
+	{
+		from.sendKeys("Mumbai");
+	}
+	public void City()//select the city
+	{
+		selectCity.click();
+	}
+	public void ToCity()
+	{
+		To.sendKeys("Delhi");
+	}
+	public void Destination()
+	{
+		SelcetDesti.click();
+	}
+	public void date()//select date
+	{
+		calendar.click();
+	}
+	public void Passenger()//passenger added
+	{
+		Traveller.click();
+	}
+	public void Addadults()
+	{
+		Adults.click();
+	}
+	public void Applybtn()
+	{
+		Apply.click();
+	}
+	public void searchbtn()
+	{
+		search.click();
+	}
+	
+	public void ValidateText()
+	{
+		String actual = text.getText();
+		String expected="200-OK";
+		
+		Assert.assertEquals(actual,expected);
+		System.out.println("same text");
+	}
+
+}

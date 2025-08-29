@@ -1,0 +1,55 @@
+package Amazon;
+
+import java.awt.print.PageFormat;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Amazonhome {
+//WebDriver driver;
+	@FindBy(xpath = "//*[@class='commonModal__close']")private WebElement Close;
+
+	@FindBy(xpath = "//*[@class='styles__Close-sc-1bytt3z-0 kezeYI']") private WebElement add;
+	@FindBy(id ="fromCity")private WebElement from;
+	@FindBy(xpath = "(//*[contains(text(),'Mumbai')])[2]")private WebElement selectCity;
+	@FindBy(xpath = "(//*[@type='text'])[2]")private WebElement To;
+	@FindBy(xpath ="(//*[contains(text(),'Mumbai, India')])[1]")private WebElement SelcetDesti;
+	
+	////*[@class='makeFlex flexOne spaceBetween appendRight10']
+	
+
+	public Amazonhome(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void ClosePopup()
+	{
+		Close.click();
+	}
+	
+	public void CloseAdd()
+	{
+		add.click();
+	}
+	public void fromCity()
+	{
+		from.sendKeys("Mumbai");
+	}
+	public void City()
+	{
+		selectCity.click();
+	}
+	public void ToCity()
+	{
+		from.sendKeys("Delhi");
+	}
+	public void Destination()
+	{
+		SelcetDesti.click();
+	}
+	
+
+}

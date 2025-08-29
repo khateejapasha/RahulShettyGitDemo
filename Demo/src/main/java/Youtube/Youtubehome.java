@@ -1,0 +1,28 @@
+package Youtube;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Youtubehome {
+	@FindBy(xpath ="//*[@name='search_query']")private WebElement searchBox;
+	@FindBy(xpath ="//button[@class='ytSearchboxComponentSearchButton']")private WebElement SearchIcon;
+
+	public Youtubehome(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		
+	}
+	public void Search()
+	{	
+	searchBox.sendKeys("i love my india");
+		
+	}
+	
+	public void ClickSeach() {
+		SearchIcon.click();
+		
+	}
+	
+	
+}

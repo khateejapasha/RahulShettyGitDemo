@@ -1,0 +1,30 @@
+package Flipkart;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartProduct {
+@FindBy(xpath = "(//*[@class='hCKiGj'])[2]")private WebElement ClickOnShoes;
+@FindBy(xpath = "//*[@class='VU-ZEz']")private WebElement text;
+private WebDriver driver;
+
+public FlipkartProduct(WebDriver driver)
+{
+	PageFactory.initElements(driver, this);
+}
+
+public void SelectShoes() {
+	ClickOnShoes.click();
+	
+}
+public void validateText()
+{
+	String Actual = text.getText();
+	String expected="Combo Pack Of 2 Loafers For Men  (White, Black , 6)";
+	Assert.assertEquals(Actual,expected );
+	System.out.println(text);
+}
+}

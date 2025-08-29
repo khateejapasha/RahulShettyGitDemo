@@ -1,0 +1,27 @@
+package FlipkartTest;
+
+import java.sql.Driver;
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import Flipkart.FlipkartHome;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FlipkartTestClass extends FlipkartBase{
+
+	@Test
+	public void Initial()
+	{
+		FlipkartHome pf1 = PageFactory.initElements(driver,FlipkartHome.class);
+		
+		pf1.ContinueShopbtn();
+		pf1.EnterText();
+	
+		
+				
+}
+}

@@ -1,0 +1,28 @@
+package Flipkart;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartHome {
+	@FindBy(name =  "//*[@class='zDPmFV']")private WebElement SearchBox;
+	@FindBy(xpath ="//*[@class='MJG8Up']")private WebElement searchicon;
+	
+
+	public FlipkartHome(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		
+	}
+	public void ContinueShopbtn()
+	{	
+	SearchBox.sendKeys("Shoes for men");
+		
+	}
+	
+	public void Searchmagnifier() {
+		searchicon.click();
+		
+	}
+	
+}

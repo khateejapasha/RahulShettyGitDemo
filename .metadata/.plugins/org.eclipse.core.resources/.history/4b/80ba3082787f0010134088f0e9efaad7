@@ -1,0 +1,33 @@
+package Flipkart;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartHome {
+	@FindBy(id =  "userEmail")private WebElement email;
+	@FindBy(id ="userPassword")private WebElement pwd;
+	@FindBy(id="login")private WebElement login;
+	
+
+	public FlipkartHome(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		
+	}
+	public void emailID()
+	{	
+	email.sendKeys("khateejapasha11@gmail.com");
+		
+	}
+	
+	public void password() {
+		pwd.sendKeys("ZoyaMajid@100");
+		
+	}
+	public void loginbtn()
+	{
+		login.click();
+	}
+	
+}

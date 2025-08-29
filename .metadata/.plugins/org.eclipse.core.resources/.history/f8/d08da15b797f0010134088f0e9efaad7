@@ -1,0 +1,29 @@
+package Flipkart;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartProduct {
+@FindBy(xpath = "(//*[@class='btn w-10 rounded'])[1]")private WebElement product;
+@FindBy(xpath = "(//*[@class='btn btn-custom'])[3]")private WebElement cart;
+
+private WebDriver driver;
+
+public FlipkartProduct(WebDriver driver)
+{
+	PageFactory.initElements(driver, this);
+}
+
+public void selectProduct() {
+	product.click();
+	
+}
+public void CartBtn()
+{
+	cart.click();
+}
+
+}

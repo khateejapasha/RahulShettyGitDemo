@@ -1,0 +1,81 @@
+package Ecommerce;
+
+import java.awt.Window;
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import com.google.gson.annotations.Until;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class StandaloneTest {
+
+	public static void main(String[] args) throws InterruptedException {
+		String productName="ZARA COAT 3";
+		WebDriverManager.chromedriver().setup();//used to set the chromedriver systemproperty
+		WebDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
+		driver.findElement(By.id("userEmail")).sendKeys("Khateejapasha11@gmail.com");
+		driver.findElement(By.id("userPassword")).sendKeys("ZoyaMajid@100");
+		driver.findElement(By.id("login")).click();
+		
+		List<WebElement> produts=driver.findElements(By.cssSelector("div[class='row']"));
+	for(WebElement w: produts)
+	{List<WebElement> prod=null;
+		String text=w.findElement(By.xpath("//b[contains(text(),'ZARA COAT 3')]")).getText();
+		if(text.equals("ZARA COAT"))
+		{
+			prod=produts;
+		}
+		w.findElement(By.xpath("(//button[@class='btn w-10 rounded'])[1]")).click();
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
+		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));	
+		
+		
+		
+		//ng-animating is a class on website there add to cart button visiblity. till that need to wait
+		//realtime developer will inform which element he used 
+			
+		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
+		List<WebElement> CartProduct=driver.findElements(By.xpath("//div[@class='cartSection']"));
+		Thread.sleep(1000);
+		for(WebElement w1: CartProduct) {
+			
+		if(w1.getText().equalsIgnoreCase(productName))	
+		{
+			boolean match = true;
+			Assert.assertTrue(match);
+		
+			
+		}
+			
+	JavascriptExecutor js=((JavascriptExecutor)driver);
+	js.executeScript("window.scrollBy(0,500); ");
+	
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[3]")).click();
+		
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@class='btn btn-primary'])[3]"))).click();
+		
+	
+	}
+	}
+	}
+}
+	
+
+

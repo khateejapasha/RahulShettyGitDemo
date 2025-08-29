@@ -1,0 +1,36 @@
+package FlipkartTest;
+
+import java.sql.Driver;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import Flipkart.Youtubehome;
+import Flipkart.YoutubePlaylist;
+import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath;
+import io.cucumber.messages.types.Product;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class YoutubeTest extends FlipkartBase{
+
+	@Test
+	public void Initial()
+	{
+		Youtubehome pf1 = PageFactory.initElements(driver,Youtubehome.class);
+		
+		pf1.Search();
+		pf1.ClickSeach();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+	YoutubePlaylist pf2=PageFactory.initElements(driver, YoutubePlaylist.class);
+	pf2.selectSong();
+}
+}

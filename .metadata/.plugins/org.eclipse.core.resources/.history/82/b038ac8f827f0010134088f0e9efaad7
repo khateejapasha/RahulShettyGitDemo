@@ -1,0 +1,44 @@
+package FlipkartTest;
+
+import java.awt.Window;
+import java.lang.annotation.Documented;
+import java.sql.Driver;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import Flipkart.Youtubehome;
+import Flipkart.YoutubePlaylist;
+import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath;
+import io.cucumber.messages.types.Product;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class YoutubeTest extends FlipkartBase{
+
+	@Test
+	public void Initial() throws InterruptedException
+	{
+		Youtubehome pf1 = PageFactory.initElements(driver,Youtubehome.class);
+		
+		pf1.Search();
+		Thread.sleep(2000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='yt-icon-shape ytSpecIconShapeHost'])[2]")));
+		
+		pf1.ClickSeach();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	//js.executeScript("window.scrollTo(0,document.body.scrollheight)" );
+	js.executeScript("window.scrollBy(0,500)");
+}
+}

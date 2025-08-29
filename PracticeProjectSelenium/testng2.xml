@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="TestngDemo.Listners"/>
+</listeners>
+
+  <test thread-count="5" name="Test">
+  
+   <parameter name="URL" value="https://qaclickacademy.com"></parameter>
+ 
+  <groups>
+  <run>
+  <include name="Smoke"></include>
+  </run>
+  </groups>
+    <classes>
+      <class name="TestngDemo.Demo"/>
+       <class name="TestngDemo.Demo1"/>
+       <class name="TestngDemo.CarDemo"/>
+      
+     
+    </classes>
+
+  
+ 
+
+
+  </test>
+</suite> 

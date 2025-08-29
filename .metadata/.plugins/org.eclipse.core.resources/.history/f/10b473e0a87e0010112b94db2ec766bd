@@ -1,0 +1,19 @@
+package FlipkartTest;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Flipkart.FlipkartHome;
+
+public class FlipkartTestClass extends FlipkartBase {
+	WebDriver driver;
+@Test
+public void InitializeBrowser()
+{
+	launchBrowser();
+	FlipkartHome home=new FlipkartHome(driver);
+//	home.ClickSearchBox();
+	home.EnterText();
+	home.selectProduct();
+}
+}

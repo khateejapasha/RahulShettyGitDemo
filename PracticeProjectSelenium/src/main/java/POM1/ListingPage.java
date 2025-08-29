@@ -1,0 +1,29 @@
+package POM1;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ListingPage {
+	@FindBy(xpath = "(//button[@class='btn w-10 rounded'])[1]")private WebElement Addtocart;
+	//(//button[@class='btn w-10 rounded'])[1]
+	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']")private WebElement Cart;
+	
+	public ListingPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void AddToCartBtn()
+	{
+		Addtocart.click();
+	}
+public void cartbtn()
+{
+	Cart.click();
+}
+}

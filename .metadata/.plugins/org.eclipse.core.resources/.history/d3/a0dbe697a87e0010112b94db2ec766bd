@@ -1,0 +1,30 @@
+package Flipkart;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartHome {
+	@FindBy(id  = "twotabsearchtextbox")private WebElement searchBox;
+	@FindBy(name =  "field-keywords")private WebElement EnterText;
+	@FindBy(xpath = "(//*[text()='shoes for men'])[2]")private WebElement Product;
+	
+	public FlipkartHome(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		
+	}
+	
+	public void ClickSearchBox()
+	{
+		searchBox.click();
+	}
+	public void EnterText() {
+		EnterText.sendKeys("Shoes for men");
+		
+	}
+	public void selectProduct()
+	{
+		Product.click();
+	}
+}

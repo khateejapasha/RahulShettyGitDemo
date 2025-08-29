@@ -1,0 +1,24 @@
+package Flipkart;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartProduct {
+@FindBy(xpath = "(//*[@class='_53J4C-'])[1]")private WebElement ClickOnShoes;
+
+private WebDriver driver;
+
+public FlipkartProduct(WebDriver driver)
+{
+	PageFactory.initElements(driver, this);
+}
+
+public void SelectShoes() {
+	ClickOnShoes.click();
+	
+}
+
+}

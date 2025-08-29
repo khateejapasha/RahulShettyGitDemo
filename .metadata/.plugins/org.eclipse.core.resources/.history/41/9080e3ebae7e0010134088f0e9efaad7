@@ -1,0 +1,36 @@
+package Flipkart;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipkartHome {
+	@FindBy(xpath = "//*[@type='submit']")private WebElement ContinueShop;
+	@FindBy(id  = "nav-bb-search")private WebElement searchBox;
+	
+	//@FindBy(xpath  =  "(//*[@name='search'])[2]")private WebElement EnterText;
+//	@FindBy(xpath = "(//*[text()='shoes for men'])[2]")private WebElement Product;
+	
+	public FlipkartHome(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		
+	}
+	public void ContinueShopbtn()
+	{
+		ContinueShop.click();
+	}
+	
+	//public void ClickSearchBox()
+	//{
+	//	searchBox.click();
+	//}
+	public void EnterText() {
+		searchBox.sendKeys("Shoes for men");
+		
+	}
+	//public void selectProduct()
+	//{
+		//Product.click();
+	//}
+}

@@ -1,0 +1,36 @@
+package FlipkartTest;
+
+import java.sql.Driver;
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import Flipkart.FlipkartHome;
+import Flipkart.FlipkartProduct;
+import io.cucumber.messages.types.Product;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FlipkartTestClass extends FlipkartBase{
+
+	@Test
+	public void Initial()
+	{
+		FlipkartHome pf1 = PageFactory.initElements(driver,FlipkartHome.class);
+		
+		pf1.emailID();
+		pf1.password();
+		pf1.loginbtn();
+	FlipkartProduct product=new FlipkartProduct(driver)	;	
+	product.selectProduct();
+	product.CartBtn();
+			
+			//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+			//product.validateText();
+			
+			//String child = driver.getWindowHandle();
+			//driver.switchTo().window(child);
+}
+}

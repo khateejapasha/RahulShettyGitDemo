@@ -1,0 +1,29 @@
+package Amazon;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class Amazonhome {
+WebDriver driver;
+	@FindBy(xpath = "(//*[@class='srcDest___aa6db3'])[1]")private WebElement from;
+	@FindBy(xpath = "(//*[@class='srcDest___aa6db3'])[2]")private WebElement To;
+	
+
+	public Amazonhome(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public void Search()
+	{
+		searchBox.sendKeys("shirts for men");
+	}
+	
+	public void Searchmagnifier()
+	{
+		SearchIcon.click();
+	}
+	
+
+}

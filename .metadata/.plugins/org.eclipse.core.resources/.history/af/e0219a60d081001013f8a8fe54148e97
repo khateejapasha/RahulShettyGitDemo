@@ -1,0 +1,26 @@
+package AmazonTest;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import Amazon.Amazonhome;
+
+public class AmazonTestClass extends AmazonBase{
+	
+	@Test
+	public void InitializeBrowser() throws InterruptedException
+	{
+		Amazonhome pf1 = PageFactory.initElements(driver,Amazonhome.class);
+		JavascriptExecutor js=((JavascriptExecutor)driver);
+		js.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(4000);
+		pf1.Source();
+		Thread.sleep(4000);
+		pf1.Destination();
+		pf1.Calendar();
+	}
+	
+
+}

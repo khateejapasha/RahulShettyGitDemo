@@ -1,0 +1,26 @@
+package Flipkart;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class YoutubePlaylist {
+@FindBy(xpath = "(//a[@class='yt-simple-endpoint style-scope ytd-video-renderer'])[1]")private WebElement song;
+
+
+private WebDriver driver;
+
+public YoutubePlaylist(WebDriver driver)
+{
+	PageFactory.initElements(driver, this);
+}
+
+public void selectSong() {
+	song.click();
+	
+}
+
+
+}

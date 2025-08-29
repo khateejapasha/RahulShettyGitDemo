@@ -1,0 +1,27 @@
+package POM1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Cart {
+	@FindBy(xpath = "//li[@class='items even ng-star-inserted']")private WebElement productlist;
+	
+	public Cart(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void Lists(WebElement string)
+	{
+		//System.out.println(productlist.getText());
+		String text=productlist.getText();
+		//System.out.println(text);
+		if(text.equals(productlist))
+		{
+			System.out.println("I am Zara Coat3");
+		}
+	}
+
+}
