@@ -15,6 +15,13 @@ public void sampleMethod()
 	System.out.println("Hello i am git6");
 	System.out.println("Hello i am git7");
 }
+@Test
+public void Tablet()
+{
+	System.out.println("IOS tablet");
+	System.out.println("IOS tablet");
+	System.out.println("IOS tablet");
+}
 
 
 }
