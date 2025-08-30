@@ -7,6 +7,9 @@ public class BasicsOfTest {
 public void sampleMethod()
 {
 	System.out.println("Hello i am test classS");
+	System.out.println("Hello i am git1");
+	System.out.println("Hello i am git2");
+	System.out.println("Hello i am git3");
 }
 
 
